@@ -45,7 +45,7 @@ io.on("connection", socket => {  //Incoming connections
   requestAPIWeather();
   refreshFrontend(socket);
   interval = setInterval(() => requestAPIWeather(), 9987 ); //  //getApiAndEmit(socket);
-  interval2 = setInterval(() => test(socket), 10000); // 10 seconds
+  interval2 = setInterval(() => refreshFrontend(socket), 10000); // 10 seconds
   socket.on("disconnect", () => {
     clearInterval(interval);
     clearInterval(interval2);
@@ -70,12 +70,12 @@ const requestAPIWeather = async () =>{
         const lond = await axios.get(uriweather+apikey+coordinates[4]+uriweather2);
         const geor = await axios.get(uriweather+apikey+coordinates[5]+uriweather2);
         var data=[
-          {city:'Santiago', temp:sant.data.currently.temperature, time:moment().format("HH:mm:ss")},
-        {city:'Zurich', temp:zur.data.currently.temperature, time:moment().add(5,'hour').format("HH:mm:ss")},
-        {city:'Auckland', temp:auk.data.currently.temperature, time:moment().add(16,'hour').format("HH:mm:ss")},
-        {city:'Sydney', temp:syd.data.currently.temperature, time:moment().add(13,'hour').format("HH:mm:ss")},
-        {city:'Londres', temp:lond.data.currently.temperature, time:moment().add(5,'hour').format("HH:mm:ss")},
-        {city:'Georgia', temp:geor.data.currently.temperature, time:moment().subtract(1,'hour').format("HH:mm:ss")} ];
+          {city:'Santiago', temp:sant.data.currently.temperature, time:moment().utc().subtract(3,'hour').format("HH:mm:ss")},
+        {city:'Zurich', temp:zur.data.currently.temperature, time:moment().utc().add(2,'hour').format("HH:mm:ss")},
+        {city:'Auckland', temp:auk.data.currently.temperature, time:moment().utc().add(13,'hour').format("HH:mm:ss")},
+        {city:'Sydney', temp:syd.data.currently.temperature, time:moment().utc().add(11,'hour').format("HH:mm:ss")},
+        {city:'Londres', temp:lond.data.currently.temperature, time:moment().utc().add(3,'hour').format("HH:mm:ss")},
+        {city:'Georgia', temp:geor.data.currently.temperature, time:moment().utc().subtract(4,'hour').format("HH:mm:ss")} ];
         client.set("data", JSON.stringify(data));
     } catch (error){
         const errorTime = moment().unix();
