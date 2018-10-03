@@ -17,7 +17,7 @@ var client = redis.createClient();
 const getAsync = promisify(client.get).bind(client); // Get Redis value with promises
 
 // Middlewares
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 app.use(express.json());
 
 //Routes
