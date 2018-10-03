@@ -1,0 +1,33 @@
+{
+  "name": "prueba-reloj-temp",
+  "version": "1.0.0",
+  "description": "a starter project in React (using Webpack) with an ExpressJS server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "start-dev": "./node_modules/.bin/webpack-dev-server --port 3000 --content-base dist/",
+    "build": "./node_modules/.bin/webpack",
+    "webpack": "webpack --mode development --watch"
+  },
+  "author": "diego berrios",
+  "license": "",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "nodemon": "^1.18.4",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
