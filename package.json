@@ -13,7 +13,12 @@
   "author": "diego berrios",
   "license": "",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "moment": "2.22.2",
+    "axios":"^0.18.0",
+    "morgan": "1.9.1",
+    "redis": "2.8.0",
+    "socket.io": "2.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
